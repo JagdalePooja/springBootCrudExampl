@@ -15,19 +15,16 @@ public class ContactController {
 
     @Autowired
     private ContactService contactService;
-
     @RequestMapping("/read-contact")
     public String showReadContactPage(Model model) {
         model.addAttribute("contacts", contactService.findAll());
         return "readcontact";
     }
-
     @RequestMapping("/create-contact")
     public String showCreateContactPage(Model model) {
         model.addAttribute("command", new Contact());
         return "createcontact";
     }
-
     @RequestMapping(value = "/create-contact", method = RequestMethod.POST)
     public String createContact(@ModelAttribute("contact") Contact contact) {
         contactService.saveContact(contact);

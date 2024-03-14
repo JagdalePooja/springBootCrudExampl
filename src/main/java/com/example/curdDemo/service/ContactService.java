@@ -13,11 +13,9 @@ public class ContactService {
 
     @Autowired
     private ContactRepository contactRepository;
-
     public List<Contact> findAll() {
         return contactRepository.findAll();
     }
-
     public Optional<Contact> findById(int id) {
         return contactRepository.findById(id);
     }
